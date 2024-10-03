@@ -1,5 +1,7 @@
 # Dashboard
 
+## Penjelasan
+Menggunakan data 'Bike Sharing' untuk melihat komponen apa saja yang berpengaruh terhadap penggunaan layanan 'Bike Sharing', serta perkembangan layanan dari tahun 2011 sampai 2012
 
 ## Setup Environment - Shell/Terminal
 ```
