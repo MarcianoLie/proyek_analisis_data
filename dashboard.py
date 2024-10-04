@@ -56,19 +56,29 @@ def plot_scatter(df, label):
     xtemp = df["temp"]
     xatemp = df["atemp"]
     ycount = df["count"]
-    
-    fig, ax = plt.subplots()
-    ax.scatter(x=xtemp, y=ycount, color='springgreen')
-    ax.set_title(f"Temp and Count ({label})")
-    ax.set_xlabel("Temp")
-    ax.set_ylabel("Count")
-    st.pyplot(fig)
+    xhumidity = df["humidity"]
+    xwindspeed = df["windspeed"]
+    fig, axs = plt.subplots(2, 2, figsize=(10, 10))
+    axs[0, 0].set_title(f"Temp and Count ({label})")
+    axs[0, 0].set_xlabel("Count")
+    axs[0, 0].set_ylabel("Temp")
+    axs[0, 0].scatter(x=xtemp, y=ycount, color='springgreen')
 
-    fig, ax = plt.subplots()
-    ax.scatter(x=xatemp, y=ycount, color='cornflowerblue')
-    ax.set_title(f"Atemp and Count ({label})")
-    ax.set_xlabel("Atemp")
-    ax.set_ylabel("Count")
+    axs[0, 1].set_title(f"Atemp and Count ({label})")
+    axs[0, 1].set_xlabel("Count")
+    axs[0, 1].set_ylabel("Atemp")
+    axs[0, 1].scatter(x=xatemp, y=ycount, color='cornflowerblue')
+
+    axs[1, 0].set_title(f"Humidity and Count ({label})")
+    axs[1, 0].set_xlabel("Count")
+    axs[1, 0].set_ylabel("Humidity")
+    axs[1, 0].scatter(x=xhumidity, y=ycount, color='tomato')
+
+    axs[1, 1].set_title(f"Wind Speed and Count ({label})")
+    axs[1, 1].set_xlabel("Count")
+    axs[1, 1].set_ylabel("Wind Speed")
+    axs[1, 1].scatter(x=xwindspeed, y=ycount, color='gold')
+    plt.tight_layout()
     st.pyplot(fig)
 
 
